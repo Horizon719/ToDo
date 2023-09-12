@@ -1,22 +1,23 @@
+import MegjelenitSor from "./MegjelenitSor.js";
 
 class Megjelenit {
     
     #lista=[]
     constructor(lista, szuloElem){
         this.#lista = lista;
-        this.szuloElem = szuloElem;
-
+        szuloElem.append(`<table class="table table-hover table-bordered">`);
+        this.tablaElem = szuloElem.children("table");
         this.megjelenit();
     }
 
     megjelenit(){
-        let txt = `<table class="table table-hover">`;
-       
+        
         this.#lista.forEach(element => {
-            txt+=`<tr><td>${element}</td></tr>`;
+            new MegjelenitSor(element, this.tablaElem)
         });
-        txt+='</table>';
-        this.szuloElem.html(txt);
+        
     }
+
+    
 
 } export default Megjelenit
