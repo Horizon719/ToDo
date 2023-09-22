@@ -9,7 +9,16 @@ class Controller{
         let ujElem = $(`.ujadat`);
         const MODEL = new Model();
         new Megjelenit(MODEL.getList(), szuloElem);
-        new Urlap(MODEL.getList(), ujElem)
+        new Urlap({
+            tevekenyseg: "Tevékenység",
+            hatarido: "Határidő",
+            kesz: "Állapot (true/false)",
+        },
+        {
+            tevekenyseg: "",
+            hatarido: "",
+            kesz: false,
+        }, ujElem)
 
         $(window).on("torol", function(event){
             console.log(event.detail);
